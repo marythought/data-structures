@@ -1,5 +1,5 @@
 require "spec_helper"
-require "project.rb"
+require "insertion-sort.rb"
 
 describe 'project' do
   it "returns a valid result" do
