@@ -6,6 +6,7 @@
 
 * linked lists
 * insertion sort
+* merge sort
 
 ## Installation
 
