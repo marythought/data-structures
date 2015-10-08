@@ -9,10 +9,10 @@ def merge_sort(array)
       new_array += slice.sort!
     end
     array = new_array
+    remainder = array.length - current_length
     current_length = current_length * 2
   end
   1.upto(remainder) do
-    array[-1]
     array.each_with_index do |item, index|
       if array[-1] <= item
         array.insert(index, array[-1])
