@@ -1,28 +1,26 @@
-# first 2 then 4 then 8 etc until slice number is greater than array.length, then factor the remainder
-
-def merge_sort(array)
-  return array if array.length < 2
-  current_length = 2
-  while array.length > current_length
-    new_array = []
-    array.each_slice(current_length) do |slice|
-      new_array += slice.sort!
-    end
-    array = new_array
-    remainder = array.length - current_length
-    current_length = current_length * 2
-  end
-  1.upto(remainder) do
-    array.each_with_index do |item, index|
-      if array[-1] <= item
-        array.insert(index, array[-1])
-        array.delete_at(-1)
-        break
-      end
-    end
-  end
-  return array
+def merge_sort(ary)
+  return ary if ary.size <= 1
+  mid = ary.size / 2
+  left = merge_sort(ary[0, mid])
+  right = merge_sort(ary[mid, ary.size-1])
+  combine(left, right)
 end
+
+def combine(left, right)
+  if right.first > left.last
+    return left.concat(right)
+  elsif right.last < left.first
+    return right.concat(left)
+  else
+    merged = []
+    loop do
+      return merged.concat(right) if left.empty?
+      return merged.concat(left) if right.empty?
+      left.first <= right.first ? merged << left.shift : merged << right.shift
+    end
+  end
+end
+
 
 
 
