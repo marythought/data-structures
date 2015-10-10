@@ -26,6 +26,10 @@ Good resources for data structures and algorithms in Ruby:
 * Item 2
 * Item 3
 
+Help with setting up testing for error messages:
+* http://phrogz.net/programmingruby/tut_exceptions.html
+* http://stackoverflow.com/questions/14418628/what-is-the-expected-syntax-for-checking-exception-messages-in-minitests-assert
+
 ### Known Issues
 
 ## Authors

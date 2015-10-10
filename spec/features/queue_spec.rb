@@ -31,8 +31,15 @@ describe 'queues' do
     assert_equal queue.first.value, "kittens"
   end
 
+  it "raises an error on dequeue if queue is empty" do
+    queue = Queue.new()
+    err = ->{ queue.dequeue }.must_raise RuntimeError
+    err.message.must_match /queue is empty/
+  end
+
   it "returns a size of the queue" do
     queue = Queue.new()
+    assert_equal queue.size, 0
     queue.enqueue(0)
     queue.enqueue(12)
     queue.enqueue(13)

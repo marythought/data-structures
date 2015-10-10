@@ -20,6 +20,7 @@ class Queue
   end
 
   def dequeue
+    raise "queue is empty" if @first.nil?
     top = @first
     @first = top.next
     return top
@@ -30,6 +31,7 @@ class Queue
   end
 
   def size
+    return 0 if @first.nil?
     count = 0
     current = @first
     until current.next.nil?
