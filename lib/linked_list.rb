@@ -1,38 +1,50 @@
-class Node
-  attr_accessor :value, :next_node
-
-  def initialize(value, next_node=nil)
-    @value = value
-    @next_node = next_node
-  end
-end
+Node = Struct.new(:value, :next)
 
 class LinkedList
-  attr_accessor :head, :nodes
+  attr_accessor :head
 
-  def initialize(head)
-    @head = Node.new(head)
-    @nodes = [@head]
+  def initialize
+    @head = nil
   end
 
-  def add
-    value = @head.value + 1
-    next_node = @head
-    @head = Node.new(value, next_node)
-    @nodes << @head
+  def insert(value)
+    @head = Node.new(value, @head)
   end
 
   def to_s
-    result = @nodes.map do |node|
-      node.value
+    current = @head
+    return "no values" if current.nil?
+    string = ""
+    until current.next.nil?
+      string += "#{current.value}, "
+      current = current.next
     end
-    return result.to_s
+    string += "#{current.value}"
+    return string
   end
 
   def search(value)
+    current = @head
+    until current.nil?
+      return true if current.value == value
+      current = current.next
+    end
+    false
   end
 
-  def delete(position)
+  def remove(value)
+    current = @head
+    if current.value == value
+      @head = current.next
+      return value
+    end
+    until current.next.nil?
+      if current.next.value == value
+        current.next = current.next.next
+        return value
+      end
+      current = current.next
+    end
   end
 end
 
