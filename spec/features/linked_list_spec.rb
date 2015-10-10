@@ -1,5 +1,5 @@
 require "spec_helper"
-require "linked_list.rb"
+require "linked_list"
 
 describe 'linked lists' do
   it "returns a list with head at most recent added" do
