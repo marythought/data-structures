@@ -34,4 +34,11 @@ describe 'stacks' do
     stack.push(13)
     assert_equal stack.to_s, "13, 12, 0"
   end
+
+  it "can peek at next item in stack" do
+    stack = Stack.new()
+    stack.push(0)
+    stack.push(12)
+    assert_equal stack.peek, 12
+  end
 end

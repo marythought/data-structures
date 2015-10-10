@@ -4,9 +4,14 @@
 ## Description
 **Data Structures** a repo for data structures and algorithms. This collection holds sample code for a number of classic data structures implemented in Ruby, including:
 
-* linked lists
+# Sort Methods:
 * insertion sort
 * merge sort
+
+# Data Structures:
+* linked-list (single)
+* stack
+* queue
 
 ## Installation
 
