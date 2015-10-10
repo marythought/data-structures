@@ -4,7 +4,7 @@ require "insertion_sort.rb"
 describe 'insertion sort' do
   it "returns a valid result with strings" do
     names = ["Brian", "Anna", "Dorothy", "Cathy", "Mary", "Deb", "Lucy", "Zach", "Beatrice"]
-    assert_equal insertion_sort(names), ["Anna", "Beatrice", "Brian", "Cathy", "Deb", "Dorothy", "Lucy", "Mary", "Zach"]
+    assert_equal ["Anna", "Beatrice", "Brian", "Cathy", "Deb", "Dorothy", "Lucy", "Mary", "Zach"], insertion_sort(names)
   end
 
   it "returns valid result with numbers" do
@@ -14,7 +14,7 @@ describe 'insertion sort' do
 
   it "returns sorted names with case sensitive sort" do
     names = ["Brian", "anna", "Dorothy", "cathy", "mary", "Deb", "Lucy", "zach", "Beatrice"]
-    assert_equal insertion_sort_case_insensitive(names), ["Anna", "Beatrice", "Brian", "Cathy", "Deb", "Dorothy", "Lucy", "Mary", "Zach"]
+    assert_equal ["Anna", "Beatrice", "Brian", "Cathy", "Deb", "Dorothy", "Lucy", "Mary", "Zach"], insertion_sort_case_insensitive(names)
   end
 end
 

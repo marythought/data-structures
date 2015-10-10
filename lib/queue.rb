@@ -37,9 +37,8 @@ class Queue
     until current.next.nil?
       count += 1
       current = current.next
-      end
+    end
     return count + 1
   end
-
 end
 
