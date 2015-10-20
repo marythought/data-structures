@@ -38,28 +38,31 @@ class BinTree
       list << current.left if !current.left.nil?
       list << current.right if !current.right.nil?
     end
-    return permalist.compact
+    return permalist.compact.join(", ")
   end
 
-  # self left right
   def pre_order
     [self, self.left.pre_order, self.right.pre_order].compact.flatten
   end
 
-  # left self right
+  def print_pre_order
+    "pre-order: #{self.pre_order.map{ |tree| tree.value }.join(', ')}"
+  end
+
   def in_order
     [self.left.in_order, self, self.right.in_order].compact.flatten
   end
 
-  # left right self
+  def print_in_order
+    "in-order: #{self.in_order.map{ |tree| tree.value }.join(', ')}"
+  end
+
   def post_order
     [self.left.post_order, self.right.post_order, self].compact.flatten
   end
 
-  def print_orders
-    puts "post-order: #{self.post_order.map{ |tree| tree.value }.join(', ')}"
-    puts "pre-order: #{self.pre_order.map{ |tree| tree.value }.join(', ')}"
-    puts "in-order: #{self.in_order.map{ |tree| tree.value }.join(', ')}"
+  def print_post_order
+    "post-order: #{self.post_order.map{ |tree| tree.value }.join(', ')}"
   end
 
   def find(value)
@@ -141,22 +144,6 @@ class NilBinTree
     nil
   end
 end
-
-tree = BinTree.new("Tim")
-jony = tree.insert_as_child("Jony", tree)
-phil = tree.insert_as_child("Phil", tree)
-dan = tree.insert_as_child("Dan", jony)
-katie = tree.insert_as_child("Katie", jony)
-peter = tree.insert_as_child("Peter", katie)
-andrea = tree.insert_as_child("Andrea", katie)
-craig = tree.insert_as_child("Craig", phil)
-eddie = tree.insert_as_child("Eddie", phil)
-lucy = tree.insert("lucy")
-mary = tree.insert("mary")
-cary = tree.insert("cary")
-larry = tree.insert("larry")
-
-p tree.print_orders
 
 
 

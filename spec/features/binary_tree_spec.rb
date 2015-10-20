@@ -17,7 +17,7 @@ describe 'binary tree' do
     assert_equal "Eddie", phil.right.value
   end
 
-  it "traverses a tree" do
+  it "traverses a tree iteratively" do
     tree = BinTree.new("Tim")
     jony = tree.insert_as_child("Jony", tree)
     phil = tree.insert_as_child("Phil", tree)
@@ -27,7 +27,7 @@ describe 'binary tree' do
     andrea = tree.insert_as_child("Andrea", katie)
     craig = tree.insert_as_child("Craig", phil)
     eddie = tree.insert_as_child("Eddie", phil)
-    assert_equal ["Tim", "Jony", "Phil", "Dan", "Katie", "Craig", "Eddie", "Peter", "Andrea"], tree.traverse
+    assert_equal "Tim, Jony, Phil, Dan, Katie, Craig, Eddie, Peter, Andrea", tree.traverse
   end
 
   it "traverses a tree recursively" do
@@ -40,7 +40,9 @@ describe 'binary tree' do
     andrea = tree.insert_as_child("Andrea", katie)
     craig = tree.insert_as_child("Craig", phil)
     eddie = tree.insert_as_child("Eddie", phil)
-    assert_equal ["Dan", "Peter", "Andrea", "Katie", "Jony", "Craig", "Eddie", "Phil", "Tim"], tree.print_orders
+    assert_equal ("post-order: Dan, Peter, Andrea, Katie, Jony, Craig, Eddie, Phil, Tim"), tree.print_post_order
+    assert_equal ("in-order: Dan, Jony, Peter, Katie, Andrea, Tim, Craig, Phil, Eddie"), tree.print_in_order
+    assert_equal ("pre-order: Tim, Jony, Dan, Katie, Peter, Andrea, Phil, Craig, Eddie"), tree.print_pre_order
   end
 end
 
