@@ -7,15 +7,19 @@
 # Sort Methods:
 * insertion sort
 * merge sort
+* binary tree traversal (pre, post, and in-order)
 
 # Data Structures:
 * linked-list (single)
 * stack
 * queue
+* binary tree
 
 ## Installation
 
 ## Usage
+
+* rake test
 
 ## Configuration
 
@@ -37,6 +41,7 @@ Help with setting up testing for error messages:
 * Mary Dickson (https://github.com/marythought)
 
 ## Attribution
+* Thanks to Kevin Townsend for help with binary tree recursion (and probably more)
 
 ## Contributing
 
