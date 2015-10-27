@@ -9,14 +9,14 @@
 * merge sort
 * binary tree traversal (pre, post, and in-order)
 
-# Data Structures:
+## Data Structures:
 * linked-list (single)
 * stack
 * queue
 * binary tree
 * hash table (roll your own)
 
-# Hash table
+### Hash table
 I implemented a hash table without using Ruby's built-in hash method. This data structure instanciates a hashtable with a specified number of slots (defaults to 1024) and accepts a key (as string) and value. It runs the key through a hash mechanism (convert string characters to ordinal value, concatenate, and modulo by number of slots) and stores the value in a node containing key, value, and "next" (if applicable) for future retrieval.
 
 TODOS:
