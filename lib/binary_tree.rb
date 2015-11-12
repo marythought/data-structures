@@ -42,25 +42,25 @@ class BinTree
     return permalist.compact
   end
 
-  def find_visible
-    left = []
-    right = []
-    count = 0
-    until self.left.left.nil? && self.left.right.nil?
-      find_visible self.left
-    end
-    until self.right.left.nil? && self.right.right.nil?
-      find_visible self.right
-    end
-    # first stop at 3
-    left << self.left.value
-    right << self.right.value
-    count += 1 if left.shift > self.value
+  # in progress:
+  # def find_visible
+  #   left = []
+  #   right = []
+  #   count = 0
+  #   until self.left.left.nil? && self.left.right.nil?
+  #     find_visible self.left
+  #   end
+  #   until self.right.left.nil? && self.right.right.nil?
+  #     find_visible self.right
+  #   end
+  #   # first stop at 3
+  #   left << self.left.value
+  #   right << self.right.value
+  #   count += 1 if left.shift > self.value
 
-    self.left.find_visible
-    self.right.find_visible
-    self
-  end
+  #   self.left.find_visible
+  #   self.right.find_visible
+  # end
 
   def depth
     left_height = @left.depth
