@@ -101,9 +101,9 @@ end
 #   end
 # end
 
-Benchmark.bm do |x|
-  x.report("inserting:")   { add_words(hashtable, words) }
-  x.report("retrieving:")  { get_words(hashtable, words) }
-end
+# Benchmark.bm do |x|
+#   x.report("inserting:")   { add_words(hashtable, words) }
+#   x.report("retrieving:")  { get_words(hashtable, words) }
+# end
 
 
