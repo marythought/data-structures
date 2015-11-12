@@ -24,6 +24,7 @@ class BinTree
   end
 
   def traverse
+  # from the top, l-r by level
   # adapted from The Ruby Way: Solutions and Techniques in Ruby Programming
   # By Hal Fulton, André Arko
     list = []
@@ -38,7 +39,33 @@ class BinTree
       list << current.left if !current.left.nil?
       list << current.right if !current.right.nil?
     end
-    return permalist.compact.join(", ")
+    return permalist.compact
+  end
+
+  def find_visible
+    left = []
+    right = []
+    count = 0
+    until self.left.left.nil? && self.left.right.nil?
+      find_visible self.left
+    end
+    until self.right.left.nil? && self.right.right.nil?
+      find_visible self.right
+    end
+    # first stop at 3
+    left << self.left.value
+    right << self.right.value
+    count += 1 if left.shift > self.value
+
+    self.left.find_visible
+    self.right.find_visible
+    self
+  end
+
+  def depth
+    left_height = @left.depth
+    right_height = @right.depth
+    (left_height > right_height) ? left_height + 1 : right_height + 1
   end
 
   def pre_order
@@ -46,7 +73,7 @@ class BinTree
   end
 
   def print_pre_order
-    "pre-order: #{self.pre_order.map{ |tree| tree.value }.join(', ')}"
+    "#{self.pre_order.map{ |tree| tree.value }.join(', ')}"
   end
 
   def in_order
@@ -54,7 +81,7 @@ class BinTree
   end
 
   def print_in_order
-    "in-order: #{self.in_order.map{ |tree| tree.value }.join(', ')}"
+    "#{self.in_order.map{ |tree| tree.value }.join(', ')}"
   end
 
   def post_order
@@ -62,7 +89,7 @@ class BinTree
   end
 
   def print_post_order
-    "post-order: #{self.post_order.map{ |tree| tree.value }.join(', ')}"
+    "#{self.post_order.map{ |tree| tree.value }.join(', ')}"
   end
 
   def find(value)
@@ -107,16 +134,6 @@ class BinTree
 
   def remove
   end
-
-  # def to_s
-  #   puts sort_list(self).join
-  # end
-
-  # def sort_list(tree)
-  #   @left = sort_list(@left) if !@left.value.nil?
-  #   @right = sort_list(@right) if !@right.value.nil?
-  #   return [left, right, value].compact.flatten
-  # end
 end
 
 class NilBinTree
@@ -134,6 +151,10 @@ class NilBinTree
 
   def post_order
     nil
+  end
+
+  def depth
+    0
   end
 
   def in_order

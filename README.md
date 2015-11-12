@@ -1,6 +1,5 @@
 # Data Structures
 
-
 ## Description
 **Data Structures** a repo for data structures and algorithms. This collection holds sample code for a number of classic data structures implemented in Ruby, including:
 
@@ -44,8 +43,6 @@ Good resources for data structures and algorithms in Ruby:
 Help with setting up testing for error messages:
 * http://phrogz.net/programmingruby/tut_exceptions.html
 * http://stackoverflow.com/questions/14418628/what-is-the-expected-syntax-for-checking-exception-messages-in-minitests-assert
-
-### Known Issues
 
 ## Authors
 
