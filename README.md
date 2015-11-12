@@ -10,6 +10,7 @@
 
 ## Data Structures:
 * linked-list (single)
+* linked-list (double)
 * stack
 * queue
 * binary tree
