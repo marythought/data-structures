@@ -46,5 +46,20 @@ class LinkedList
       current = current.next
     end
   end
+
+  def reverse!
+    current = @head
+    previous = nil
+    while !current.next.nil?
+      #5 4 10 0
+      nxt = current.next
+      current.next = previous
+      previous = current
+      current = nxt
+    end
+    current.next = previous
+    previous = current
+    @head = previous
+  end
 end
 

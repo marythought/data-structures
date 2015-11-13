@@ -52,4 +52,21 @@ describe 'linked lists' do
     assert_equal true, list.search(0)
     assert_equal false, list.search(7)
   end
+
+  it "reverses a list with multiple elements" do
+    list = LinkedList.new
+    list.insert(0)
+    list.insert(10)
+    list.insert(4)
+    list.insert(5)
+    list.reverse!
+    assert_equal '0, 10, 4, 5', list.to_s
+  end
+
+  it "reverses a list with only one element" do
+    list = LinkedList.new
+    list.insert(0)
+    list.reverse!
+    assert_equal '0', list.to_s
+  end
 end
