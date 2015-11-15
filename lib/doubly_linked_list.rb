@@ -8,18 +8,17 @@ class DoublyLinkedList
     @tail = nil
   end
 
-  # new nodes go in at the tail, older nodes at head.
-  # "next" goes towards tail (newer), "previous" goes towards head (older)
-  # first in last out
+  def enqueue(value)
+    @tail = DLLNode.new(value, @tail, nil)
+    @tail.prev.next = @tail if @tail.prev
+    @head = @tail unless @head
+  end
 
-  def insert(value)
-    if @head.nil?
-      @tail = DLLNode.new(value, nil, nil)
-      @head = @tail
-    else
-      @tail = DLLNode.new(value, @tail, nil)
-      @tail.prev.next = @tail
-    end
+  # insert at front
+  def unshift(value)
+    @head = DLLNode.new(value, nil, @head)
+    @head.next.prev = @head if @head.next
+    @tail = @head unless @tail
   end
 
   def to_s
@@ -39,7 +38,7 @@ class DoublyLinkedList
       return true if current.value == value
       current = current.next
     end
-    false
+    current.value == value
   end
 
   def remove(value)
