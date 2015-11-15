@@ -20,9 +20,9 @@ describe 'linked lists' do
 
   it "can add from the front of the back" do
     list = DoublyLinkedList.new
-    list.shift(1)
-    list.shift(0)
-    list.shift(10)
+    list.unshift(1)
+    list.unshift(0)
+    list.unshift(10)
     assert_equal 10, list.head.value
     assert_equal 1, list.tail.value
   end

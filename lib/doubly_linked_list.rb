@@ -15,7 +15,7 @@ class DoublyLinkedList
   end
 
   # insert at front
-  def shift(value)
+  def unshift(value)
     @head = DLLNode.new(value, nil, @head)
     @head.next.prev = @head if @head.next
     @tail = @head unless @tail
