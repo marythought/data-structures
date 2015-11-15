@@ -14,6 +14,7 @@
 * stack
 * queue
 * binary tree
+* non-binary tree
 * hash table (roll your own)
 
 ### Hash table
