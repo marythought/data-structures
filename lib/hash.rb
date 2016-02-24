@@ -5,12 +5,12 @@ HashNode = Struct.new(:key, :val, :next)
 class HashTable
   attr_accessor :slots
 
-  def initialize(slots=1024)
+  def initialize(slots = 1024)
     @slots = Array.new(slots) # [nil, nil, nil, nil, ...]
   end
 
   def set(key, val)
-    return "key must be a string" if !(key.instance_of? String)
+    return "key must be a string" unless key.instance_of?(String)
     index = my_hash(key)
     if @slots[index].nil?
       @slots[index] = HashNode.new(key, val, nil)
@@ -105,5 +105,3 @@ end
 #   x.report("inserting:")   { add_words(hashtable, words) }
 #   x.report("retrieving:")  { get_words(hashtable, words) }
 # end
-
-
