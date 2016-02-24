@@ -19,8 +19,8 @@ class LinkedList
       string += "#{current.value}, "
       current = current.next
     end
-    string += "#{current.value}"
-    return string
+    string += current.value.to_s
+    string
   end
 
   def search(value)
@@ -50,8 +50,7 @@ class LinkedList
   def reverse!
     current = @head
     previous = nil
-    while !current.next.nil?
-      #5 4 10 0
+    until current.next.nil?
       nxt = current.next
       current.next = previous
       previous = current
@@ -62,4 +61,3 @@ class LinkedList
     @head = previous
   end
 end
-

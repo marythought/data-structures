@@ -29,7 +29,8 @@ class DoublyLinkedList
       string += "#{current.value}, "
       current = current.next
     end
-    string += "#{current.value}"
+    string += current.value.to_s
+    string
   end
 
   def search(value)
@@ -60,9 +61,6 @@ class DoublyLinkedList
         current = current.next
       end
     end
-    return "no match found"
+    "no match found"
   end
 end
-
-
-

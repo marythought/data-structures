@@ -9,7 +9,7 @@ class Queue
   end
 
   def enqueue(data)
-    if @first == nil
+    if @first.nil?
       @first = Node.new(data, nil)
       @last = @first
     else
@@ -20,14 +20,14 @@ class Queue
   end
 
   def dequeue
-    raise "queue is empty" if @first.nil?
+    fail "queue is empty" if @first.nil?
     top = @first
     @first = top.next
-    return top
+    top
   end
 
   def peek
-    return @first.value
+    @first.value
   end
 
   def size
@@ -38,7 +38,6 @@ class Queue
       count += 1
       current = current.next
     end
-    return count + 1
+    count + 1
   end
 end
-
