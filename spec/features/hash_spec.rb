@@ -14,7 +14,7 @@ describe 'hash table' do
 
   it "stores a value at a given key" do
     hash = HashTable.new(1024)
-    hash.set("one", 1).class == HashNode
+    assert_equal hash.set("one", 1).class, HashNode
     assert_equal "key must be a string", hash.set(1, 1)
     assert_equal "key must be a string", hash.set(:one, 1)
   end
@@ -37,6 +37,3 @@ describe 'hash table' do
     assert_equal false, hash.get("five") # should not find it after deleted
   end
 end
-
-
-

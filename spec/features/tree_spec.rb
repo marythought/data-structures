@@ -31,7 +31,7 @@ describe 'a tree' do
     assert_equal [], tree.children
     assert_equal "AZT", tree.value
     assert_equal 0, tree.level
-    assert_equal nil, tree.parent
+    assert_nil(tree.parent)
   end
 
   it "can add one or more child elements and increase level" do

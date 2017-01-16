@@ -4,13 +4,13 @@ require "queue"
 describe 'queues' do
   it "creates a valid node" do
     node = Node.new()
-    assert_equal nil, node.value
+    assert_nil(node.value)
   end
 
   it "returns a valid queue" do
     queue = Queue.new()
-    assert_equal nil, queue.first
-    assert_equal nil, queue.last
+    assert_nil(queue.first)
+    assert_nil(queue.last)
   end
 
   it "enqueues items to the end of the queue" do

@@ -79,17 +79,18 @@ class HashTable
 end
 
 # puts Benchmark.measure { "a"*1_000_000 }
-hashtable = HashTable.new
 
-words = File.readlines('/usr/share/dict/words').map {|word| word.chomp} #array of clean words
+# words = File.readlines('/usr/share/dict/words').map {|word| word.chomp} #array of clean words
 
-def add_words(hashtable, words)
+def add_words(words)
+  hashtable = HashTable.new
   words.length.times do |i|
     hashtable.set(words[i], words[i].reverse)
   end
 end
 
-def get_words(hashtable, words)
+def get_words(words)
+  hashtable = HashTable.new
   words.length.times do |i|
     hashtable.get(words[i])
   end

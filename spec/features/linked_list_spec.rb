@@ -53,6 +53,19 @@ describe 'linked lists' do
     assert_equal false, list.search(7)
   end
 
+  it "finds the middle in one pass" do
+    list = LinkedList.new
+    list.insert(0)
+    list.insert(10)
+    list.insert(4)
+    list.insert(5)
+    list.insert(4)
+    list.insert(5)
+    assert_equal 4, list.middle
+    list.insert(10)
+    assert_equal 5, list.middle
+  end
+
   it "reverses a list with multiple elements" do
     list = LinkedList.new
     list.insert(0)
@@ -68,5 +81,40 @@ describe 'linked lists' do
     list.insert(0)
     list.reverse!
     assert_equal '0', list.to_s
+  end
+
+  it "finds a loop with even number of nodes" do
+    list = LinkedList.new
+    list.insert(0)
+    list.insert(1)
+    list.insert(10)
+    list.insert(4)
+    list.insert(108)
+    list.insert(42)
+    list.insert(105)
+    list.insert(43)
+    list.make_loop!
+    assert list.is_loop?
+  end
+
+  it "finds a loop with an odd number of nodes" do
+    list = LinkedList.new
+    list.insert(0)
+    list.insert(1)
+    list.insert(10)
+    list.insert(4)
+    list.insert(5)
+    list.make_loop!
+    assert list.is_loop?
+  end
+
+  it "does not identify a non-loop as a loop" do
+    list = LinkedList.new
+    list.insert(0)
+    list.insert(1)
+    list.insert(10)
+    list.insert(4)
+    list.insert(5)
+    assert_equal false, list.is_loop?
   end
 end

@@ -4,12 +4,12 @@ require "stack"
 describe 'stacks' do
   it "creates a valid node" do
     node = Node.new()
-    assert_equal nil, node.value
+    assert_nil node.value
   end
 
   it "returns a valid stack" do
     stack = Stack.new()
-    assert_equal nil, stack.head
+    assert_nil stack.head
   end
 
   it "adds items to the stack" do
